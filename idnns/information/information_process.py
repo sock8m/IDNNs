@@ -182,7 +182,7 @@ def get_information(ws, x, label, num_of_bins, interval_information_display, mod
 	"""Calculate the information for the network for all the epochs and all the layers"""
 	print('Start calculating the information...')
 	bins = np.linspace(-1, 1, num_of_bins)
-	label = np.array(label).astype(np.float)
+	label = np.array(label).astype(float)
 	pys, pys1, p_y_given_x, b1, b, unique_a, unique_inverse_x, unique_inverse_y, pxs = extract_probs(label, x)
 	if calc_parallel:
 		params = np.array(Parallel(n_jobs=NUM_CORES
