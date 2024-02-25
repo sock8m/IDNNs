@@ -5,6 +5,8 @@ from idnns.networks.utils import _convert_string_dtype
 from idnns.networks.models import multi_layer_perceptron
 from idnns.networks.models import deepnn
 from idnns.networks.ops import *
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 
 def lazy_property(function):

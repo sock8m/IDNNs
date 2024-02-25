@@ -13,6 +13,7 @@ warnings.filterwarnings("ignore")
 from joblib import Parallel, delayed
 NUM_CORES = multiprocessing.cpu_count()
 from idnns.information.mutual_information_calculation import *
+import numpy as np
 
 
 def calc_information_for_layer(data, bins, unique_inverse_x, unique_inverse_y, pxs, pys1):

@@ -8,6 +8,8 @@ import tensorflow as tf
 from idnns.information import information_process  as inn
 from idnns.networks.utils import data_shuffle
 from idnns.networks import model as mo
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 warnings.filterwarnings("ignore")
 summaries_dir = 'summaries'

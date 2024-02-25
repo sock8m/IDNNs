@@ -1,6 +1,8 @@
 import tensorflow as tf
 import numpy as np
 from idnns.networks.utils import _convert_string_dtype
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 
 def conv2d(x, W):

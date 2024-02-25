@@ -1,6 +1,11 @@
 """
 Train % plot networks in the information plane
 """
+
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+
+
 from idnns.networks import information_network as inet
 def main():
     #Build the network
