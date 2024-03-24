@@ -16,10 +16,11 @@ def load_data(name, random_labels=False):
     print('Loading Data...')
     C = type('type_C', (object,), {})
     data_sets = C()
+    sess = tf.Session()
     if name.split('/')[-1] == 'MNIST':
         (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
         data_sets.data = np.concatenate((x_train, x_test), axis=0).reshape((-1, 28*28)) / 255.0  # Normalize
-        data_sets.labels = np.concatenate((tf.one_hot(y_train, depth=10), tf.one_hot(y_test, depth=10)), axis=0)
+        data_sets.labels = np.concatenate((sess.run(tf.one_hot(y_train, depth=10)), sess.run(tf.one_hot(y_test, depth=10))), axis=0)
     else:
         d = sio.loadmat(os.path.join(os.path.dirname(sys.argv[0]), name + '.mat'))
         F = d['F']
