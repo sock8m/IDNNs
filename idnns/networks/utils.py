@@ -23,7 +23,7 @@ def load_data(name, random_labels=False):
         data_sets.labels = np.concatenate((sess.run(tf.one_hot(y_train, depth=10)), sess.run(tf.one_hot(y_test, depth=10))), axis=0)
     elif name.split('/')[-1] == 'CIFAR10':
         (x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
-        data_sets.data = np.concatenate((x_train, x_test), axis=0).reshape((-1, 32*32)) / 255.0  # Normalize
+        data_sets.data = np.concatenate((x_train, x_test), axis=0).reshape((-1, 32*32*3)) / 255.0  # Normalize
         data_sets.labels = np.concatenate((sess.run(tf.one_hot(y_train, depth=10)), sess.run(tf.one_hot(y_test, depth=10))), axis=0)
     else:
         d = sio.loadmat(os.path.join(os.path.dirname(sys.argv[0]), name + '.mat'))
